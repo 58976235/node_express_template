@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-06-07 12:14:28
+ * @LastEditTime: 2021-09-01 14:04:42
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /node_express_template/app.js
+ */
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -8,7 +16,11 @@ const indexRouter = require('./routes/index');
 
 const app = express();
 /* 跨域 */
-app.use(cors());
+app.use(cors({
+    origin:config.origin,
+    methods:['GET','POST'],
+    alloweHeaders:['Conten-Type', 'Authorization']
+}));
 
 const http = require('http');
 const server = http.createServer(app);

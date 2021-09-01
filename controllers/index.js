@@ -1,18 +1,13 @@
-/*
- * @Author: your name
- * @Date: 2021-09-01 09:33:44
- * @LastEditTime: 2021-09-01 10:41:28
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: /node_express_template/controllers/index.js
- */
 const dbconfig = require('../util/dbConfig/dbconfig_admin');
-const TOKEN = require('../util/token/token');
-const { log_out } = require('../public/javascripts/log_out')
+const TOKEN = require('../util/token');
+const { getNowTime } =require('../util/time')
+const { log_out } = require('../util/printLog')
 test = (req, res) => {
     let name=req.query.name
     let Sql = ``;
     let SqlArr = [];
+
+    log_out.print('info',`${getNowTime()}:响应内容：${name}`)
     res.send({
         name
     })

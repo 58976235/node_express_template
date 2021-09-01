@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-06-04 11:54:50
+ * @LastEditTime: 2021-09-01 13:41:31
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /node_express_template/public/javascripts/log_out.js
+ */
 const fs = require('fs');
 /**
  * @name: 打印日志
@@ -17,8 +25,8 @@ class GenerateLog {
     }
     /**
      * @name: 打印日志
-     * @param {String} 日志名 
-     * @param {string} 日志内容
+     * @param { string } string 日志名 （info，error）
+     * @param { string } 日志内容
      * @return {*}
      */    
     print(pathStr, info) {
