@@ -1,12 +1,13 @@
 /*
  * @Author: your name
  * @Date: 2021-06-04 11:54:50
- * @LastEditTime: 2021-09-01 13:41:31
+ * @LastEditTime: 2021-09-01 15:56:50
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /node_express_template/public/javascripts/log_out.js
  */
 const fs = require('fs');
+const config =require('../../config')
 /**
  * @name: 打印日志
  * @param {*}
@@ -22,6 +23,7 @@ class GenerateLog {
             './error.log':false,
             './info.log':false
         }
+        this.logSize=config.logSize*1024*1024
     }
     /**
      * @name: 打印日志
@@ -44,7 +46,7 @@ class GenerateLog {
             if (error) {
                 return "file size error";
             } else {
-                if (stats.size > 10485760) {
+                if (stats.size > __this.logSize) {
                     __this.isResetR[path]=true
                     let infoStr=`--------日志文件大于10MB，已清除--------\r\n${info}`
                     fs.writeFile(path, infoStr, function (err) {

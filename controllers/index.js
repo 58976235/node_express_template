@@ -7,7 +7,7 @@ test = (req, res) => {
     let Sql = ``;
     let SqlArr = [];
 
-    log_out.print('info',`${getNowTime()}:响应内容：${name}`)
+    log_out.print('info',`${getNowTime()}：接口【${req._parsedUrl.pathname}】，响应内容：${name}`)
     res.send({
         name
     })
